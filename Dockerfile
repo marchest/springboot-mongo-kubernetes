@@ -9,6 +9,6 @@ EXPOSE 8080
 # The application's jar file (when packaged)
 ARG JAR_FILE=target/spring-boot-mongodb-example-0.0.1-SNAPSHOT.jar
 # Add the application's jar to the container
-ADD ${JAR_FILE} codestatebkend.jar
+ADD ${JAR_FILE} spring-boot-mongodb-example-0.0.1-SNAPSHOT.jar
 # Run the jar file
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/spring-boot-mongodb-example-0.0.1-SNAPSHOT.jar"]
