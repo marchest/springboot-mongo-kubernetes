@@ -7,8 +7,8 @@ VOLUME /tmp
  #Make port 8080 available to the world outside this container
 EXPOSE 8080
 # The application's jar file (when packaged)
-ARG JAR_FILE=target/spring-boot-mongodb-example-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/springmongosample.jar
 # Add the application's jar to the container
-ADD ${JAR_FILE} spring-boot-mongodb-example-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} springmongosample.jar
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/spring-boot-mongodb-example-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urand.om","-jar","/springmongosample.jar"]
