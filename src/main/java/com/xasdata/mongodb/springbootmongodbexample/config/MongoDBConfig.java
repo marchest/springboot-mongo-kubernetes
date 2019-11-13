@@ -38,13 +38,19 @@ public class MongoDBConfig {
     }
 
     @Bean
-    public MongoTemplate mongoTemplate() throws Exception{
-        if (profile=="dev"){
-            return new MongoTemplate(mongoClientDev(),"trendfitscraperdb");
-        }
-        else
-            return new MongoTemplate(mongoClientTest(),"trendfitscraperdb");
+    public MongoTemplate mongoTemplate(){
+        MongoTemplate mongoTemplate=null;
+        try {
+            if (profile=="dev"){
+                mongoTemplate= new MongoTemplate(mongoClientDev(),"trendfitscraperdb");
+            }
+            else
+                mongoTemplate=new MongoTemplate(mongoClientTest(),"trendfitscraperdb");
 
+        }catch (Exception e){
+            System.out.println("Mongoya bağlanırken hata oluştu: "+e.getMessage());
+        }
+        return mongoTemplate;
     }
 
 
