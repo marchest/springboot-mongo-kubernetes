@@ -1,0 +1,33 @@
+kind: Deployment
+metadata:
+  name: trendfit-spring-mongo
+  labels:
+    app: demo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+        - name: demo-app
+          image: furkankaya/deneme:trendfittag
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trendfit-spring-mongo-service
+spec:
+  selector:
+    app: demo-app
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31008
+  type: LoadBalancer
