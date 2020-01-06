@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: furkankaya/deneme:v1
+          image: furkankaya/deneme:tagVersion
           ports:
             - containerPort: 8080
 ---
