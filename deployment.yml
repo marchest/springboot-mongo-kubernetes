@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: furkankaya/deneme:trendfittag
+          image: furkankaya/deneme:v1
           ports:
             - containerPort: 8080
 ---
