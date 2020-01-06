@@ -22,12 +22,12 @@ pipeline {
                 sh "chmod +x DynamicTagBuilder.sh"
                 sh "./DynamicTagBuilder.sh ${IMAGE_TAG}"
                 sshagent(['k8s-cluster']) {
-                  sh "scp -o StrickHostKeyChecking=no  springboot-deployment.yml gcloudengine2@k8s-master:~/spring-mongo-kube"
+                  sh "scp -o StrickHostKeyChecking=no  springboot-deployment.yml gcloudengine2@cloudshell:~/springboot/springboot-nongo-kubernetes"
                   script{
                        try{
-                            sh "ssh gcloudengine2@k8s-master kubectl apply -f ."
+                            sh "ssh gcloudengine2@cloudshell kubectl apply -f ."
                        }catch(error){
-                            sh "ssh gcloudengine2@k8s-master kubectl create -f ."
+                            sh "ssh gcloudengine2@cloudshell kubectl create -f ."
                        }
                   }
                 }
