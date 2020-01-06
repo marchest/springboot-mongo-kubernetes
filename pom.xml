@@ -34,12 +34,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-        <dependency>
-            <groupId>tr.com.furkan.simplejsonservice</groupId>
-            <artifactId>SimpleJsonService</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 	</dependencies>
 
 	<build>
