@@ -4,6 +4,11 @@ pipeline {
         IMAGE_TAG=getDockerImageTag()
     }
     stages{
+        stage('Initialize'){
+                def dockerHome = tool 'myDocker'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+         }
+
         stage('Building docker image'){
             steps{
             sh "docker build -t furkankaya/springbootsample:${IMAGE_TAG} ."
