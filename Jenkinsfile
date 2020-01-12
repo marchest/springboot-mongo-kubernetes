@@ -8,7 +8,7 @@ pipeline {
     stages{
          stage('Building docker image'){
             steps{
-            sh "docker build . -t furkankaya/springbootsample:${IMAGE_TAG}"
+            sh "sudo docker build . -t furkankaya/springbootsample:${IMAGE_TAG}"
             }
          }
         stage('push image to docker hub'){
