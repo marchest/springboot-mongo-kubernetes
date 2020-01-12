@@ -2,17 +2,11 @@ pipeline {
     agent any
     environment{
         IMAGE_TAG=getDockerImageTag()
+         def dockerHome = tool 'myDocker'
+         PATH = "${dockerHome}/bin:${env.PATH}"
     }
     stages{
-        stage('Initialize'){
-               steps{
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-                }
-
-         }
-
-        stage('Building docker image'){
+         stage('Building docker image'){
             steps{
             sh "docker build -t furkankaya/springbootsample:${IMAGE_TAG} ."
             }
