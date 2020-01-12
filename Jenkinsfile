@@ -8,7 +8,6 @@ pipeline {
     stages{
          stage('Building docker image'){
             steps{
-            sh "chmod +x script.sh"
             sh "sudo docker build . -t furkankaya/springbootsample:${IMAGE_TAG}"
             }
          }
