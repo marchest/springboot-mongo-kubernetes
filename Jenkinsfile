@@ -8,7 +8,9 @@ pipeline {
     stages{
          stage('Building docker image'){
             steps{
-            sh "docker build . -t furkankaya/springbootsample:${IMAGE_TAG}"
+                withDockerRegistry(credentialsId: '92d33158-fd4b-4e6c-9a71-b635da00c56f', toolName: 'myDocker', url: 'https://hub.docker.com/repository/docker/furkankaya/springbootsample') {
+                    sh "docker build . -t furkankaya/springbootsample:${IMAGE_TAG}"
+                }
             }
          }
         stage('push image to docker hub'){
