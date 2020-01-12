@@ -2,13 +2,11 @@ pipeline {
     agent any
     environment{
         IMAGE_TAG=getDockerImageTag()
-         def dockerHome = tool 'myDocker'
-         PATH = "${dockerHome}/bin:${env.PATH}"
     }
     stages{
          stage('Building docker image'){
             steps{
-                withDockerRegistry(credentialsId: '92d33158-fd4b-4e6c-9a71-b635da00c56f', toolName: 'myDocker', url: 'https://hub.docker.com/repository/docker/furkankaya/springbootsample') {
+                withDockerRegistry(credentialsId: '92d33158-fd4b-4e6c-9a71-b635da00c56f', url: 'https://hub.docker.com') {
                     sh "docker build . -t furkankaya/springbootsample:${IMAGE_TAG}"
                 }
             }
