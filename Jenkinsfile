@@ -14,8 +14,8 @@ pipeline {
         stage('push image to docker hub'){
             steps{
                 withCredentials([usernamePassword(credentialsId: '92d33158-fd4b-4e6c-9a71-b635da00c56f', passwordVariable: 'Deneme21!', usernameVariable: 'furkankaya')]) {
-                        sh "docker login -u furkankaya -p ${dockerHubPassword}"
-                        sh "docker push furkankaya/springbootsample:${IMAGE_TAG}"
+                        sh "sudo docker login -u furkankaya -p ${dockerHubPassword}"
+                        sh "sudo docker push furkankaya/springbootsample:${IMAGE_TAG}"
                 }
            }
         }
