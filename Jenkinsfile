@@ -2,8 +2,6 @@ pipeline {
     agent any
     environment{
         IMAGE_TAG=getDockerImageTag()
-         def dockerHome = tool 'myDocker'
-         PATH = "${dockerHome}/bin:${env.PATH}"
     }
     stages{
          stage('Building docker image'){
